@@ -10,10 +10,12 @@ import ChatIcon from '@material-ui/icons/Chat';
 import StorefontIcon from '@material-ui/icons/Storefront';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import ExpandMoreOutlined from '@material-ui/icons/ExpandMoreOutlined';
+import { useStateValue } from './StateProvider';
 function Sidebar() {
+    const [{user},dispatch]=useStateValue();
     return (
         <div className="sidebar">
-            <SidebarRow src='https://lh3.googleusercontent.com/a-/AOh14GjjCqloBYoWXXZJLjfnPoRR98O1KFa4S4JMKOFG=s88-c-k-c0x00ffffff-no-rj-mo' title='NDDDDD' />
+            <SidebarRow src={user.photoURL} title={userEvent.displayName} />
             <SidebarRow Icon={LocalHospitalIcon} 
                 title="COVID-19 Information center"
             />
